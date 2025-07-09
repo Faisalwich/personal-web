@@ -1,0 +1,390 @@
+/* --- Variabel Warna & Font --- */
+:root {
+  /* TEMA GELAP (NAVY) - Default */
+  --primary-color: #48d1cc; /* Hijau Tosca (Turquoise) */
+  --background-color: #0d1b2a; /* Biru Navy Gelap */
+  --text-color: #e0e1dd; /* Putih Gading */
+  --card-background: #1b263b; /* Biru Navy Sedikit Lebih Terang */
+  --navbar-background: rgba(13, 27, 42, 0.8);
+  --footer-background: #000000;
+
+  /* Font Profesional & Klasik */
+  --font-heading: "Merriweather", serif;
+  --font-body: "Lato", sans-serif;
+}
+
+/* TEMA TERANG (PUTIH) - Diaktifkan oleh JavaScript */
+body.light-mode {
+  --primary-color: #008080; /* Hijau Tosca (Teal) */
+  --background-color: #f8f9fa; /* Putih sedikit keabuan */
+  --text-color: #0d1b2a; /* Teks Warna Navy Gelap */
+  --card-background: #ffffff; /* Kartu warna putih */
+  --navbar-background: rgba(248, 249, 250, 0.8);
+  --footer-background: #fefefe;
+}
+
+/* --- Gaya Dasar & Reset (Tidak ada perubahan di sini) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* --- Navbar & Tombol Tema --- */
+.navbar {
+  background: var(--navbar-background);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  align-items: center; /* Agar tombol sejajar */
+}
+
+.navbar ul li {
+  margin-left: 1.5rem;
+}
+
+.navbar a {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+/* Gaya untuk tombol Dark/Light Mode */
+.theme-toggle-button {
+  background: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 20px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle-button:hover {
+  background: var(--background-color);
+}
+
+/* --- 2. Header & Hero Section --- */
+/* Ganti semua aturan .hero dan sejenisnya dengan yang ini */
+
+.hero {
+  position: relative; /* Penting untuk animasi latar */
+  display: flex;
+  align-items: center; /* KUNCI: Membuat konten di tengah secara vertikal */
+  min-height: 80vh; /* Memberi tinggi pada header agar ada ruang */
+  overflow: hidden; /* Agar bentuk animasi tidak keluar dari area */
+}
+
+.hero-text-left {
+  max-width: 650px; /* Batasi lebar teks agar tidak terlalu panjang */
+  position: relative; /* Pastikan teks di atas bentuk animasi */
+  z-index: 1;
+}
+
+.hero-text-left h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text-left .subtitle {
+  /* Tambahkan kelas ini jika belum ada */
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+/* Biarkan kode untuk .hero-shapes, .shape, dan efek mengetik tetap seperti adanya */
+
+.hero h1 {
+  font-size: 3.5rem; /* Membuat judul lebih besar */
+  margin-bottom: 0.5rem;
+}
+
+/* Menambah garis pemisah halus antar section */
+section:not(:last-of-type) {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* Sedikit penyesuaian untuk section About */
+#about,
+#portfolio {
+  padding-top: 5rem;
+  padding-bottom: 5rem; /* Menambah jarak bawah */
+}
+
+#portfolio .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+#portfolio .card {
+  background: var(--card-background);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+#portfolio .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+#portfolio .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #555;
+}
+#portfolio .card-content {
+  padding: 1.5rem;
+}
+/* Ganti kode #about .about-content yang lama dengan ini */
+#about .about-content {
+  display: flex;
+  align-items: center; /* Membuat foto dan teks sejajar di tengah */
+  gap: 3rem; /* Menambah jarak antara foto dan teks */
+  flex-wrap: wrap;
+}
+#about .about-photo {
+  width: 200px;
+  height: 200px;
+  background: #555;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: auto;
+}
+#about .about-text {
+  flex: 1;
+  min-width: 300px;
+}
+#contact {
+  text-align: center;
+}
+.social-links a {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  background: var(--footer-background); /* Gunakan variabel */
+  color: var(--text-color); /* Pastikan warna teks juga dari variabel */
+  transition: background-color 0.3s, color 0.3s; /* Tambahkan transisi */
+}
+
+/* --- Tambahan untuk Efek Mengetik --- */
+
+/* Atur ulang ukuran h1 agar pas */
+.hero-text-left h1 {
+  font-size: 3.5rem; /* Sesuaikan ukuran jika perlu */
+}
+
+/* Gaya untuk span efek ketik */
+#typing-effect {
+  color: var(--primary-color);
+  border-right: 4px solid var(--primary-color);
+  padding-right: 8px;
+  animation: blink 0.8s infinite;
+}
+
+/* Animasi untuk kursor berkedip */
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-color);
+  }
+}
+
+/* --- CSS untuk Header Geometris Animasi --- */
+
+/* Keyframes untuk animasi melayang */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Penampung bentuk-bentuk geometris */
+.hero-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Pastikan bentuk tidak keluar dari header */
+  z-index: -1; /* Letakkan di belakang teks */
+}
+
+/* Gaya dasar untuk setiap bentuk */
+.shape {
+  position: absolute;
+  display: block;
+  background: var(--primary-color);
+  opacity: 0.1; /* Jaga agar tetap subtil */
+  animation: float 6s ease-in-out infinite; /* Terapkan animasi */
+}
+
+/* Bentuk 1 (Lingkaran Besar) */
+.shape-1 {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  top: 15%;
+  right: 5%;
+  animation-delay: 0s;
+}
+
+/* Bentuk 2 (Lingkaran Kecil) */
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: -10%;
+  right: 25%;
+  animation-delay: -2s; /* Mulai animasi di titik yang berbeda */
+}
+
+/* Bentuk 3 (Kotak Membulat) */
+.shape-3 {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  top: 60%;
+  right: 15%;
+  animation-delay: -4s;
+}
+
+/* --- Hamburger Menu & Responsive --- */
+
+/* Tombol Hamburger */
+.hamburger-menu {
+  display: none; /* Sembunyikan di desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.hamburger-menu span {
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--text-color);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Media Query untuk Layar Mobile (Contoh: di bawah 768px) */
+@media (max-width: 768px) {
+  /* Tampilkan tombol hamburger */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* Sembunyikan navigasi desktop */
+  .nav-links {
+    display: none; /* Sembunyikan menu secara default */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: var(--card-background);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Tampilkan menu saat aktif */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links ul {
+    flex-direction: column; /* Ubah orientasi list menjadi vertikal */
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links ul li {
+    margin: 1.5rem 0; /* Beri jarak antar item menu */
+  }
+}

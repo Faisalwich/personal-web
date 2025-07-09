@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio | Faisal Wicahyono</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Faisal Wicahyono</a>
+
+        <button class="hamburger-menu" id="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#portfolio">Karya</a></li>
+            <li><a href="#contact">Kontak</a></li>
+            <li><a href="resume.pdf" target="_blank">CV/Resume</a></li>
+            <li>
+              <button id="theme-toggle" class="theme-toggle-button">🌙</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero hero-geometric container">
+      <div class="hero-shapes">
+        <span class="shape shape-1"></span>
+        <span class="shape shape-2"></span>
+        <span class="shape shape-3"></span>
+      </div>
+
+      <div class="hero-text-left">
+        <h1>Halo, Saya seorang <span id="typing-effect"></span></h1>
+        <p class="subtitle">Selamat datang di portofolio digital saya.</p>
+      </div>
+    </header>
+    <main>
+      <section id="about" class="container">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+          <div class="about-photo"></div>
+          <div class="about-text">
+            <p>
+              Saya seorang mahasiswa Sistem Informasi dengan antusiasme tinggi untuk mendalami web development. Saya menikmati tantangan dalam membangun antarmuka web yang bersih dan intuitif. Sebagai
+              seorang pembelajar aktif, saya selalu mencari kesempatan untuk memperdalam pengetahuan saya dan menerapkan apa yang telah saya pelajari ke dalam proyek-proyek baru.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio" class="container">
+        <h2>Karya Terbaik Saya</h2>
+        <div class="grid">
+          <div class="card">
+            <img src="img/port1.png" alt="Placeholder Gambar Proyek 1" />
+            <div class="card-content">
+              <h3>Online Learning</h3>
+              <p>
+                Sebuah landing page untuk platform e-learning, dibuat menggunakan HTML dan CSS dengan fokus pada desain yang bersih dan responsif. Proyek ini menampilkan tata letak modern menggunakan
+                CSS Grid untuk menyajikan kategori kursus secara efektif.
+              </p>
+              <a href="https://faisalwich.github.io/Online-Learning/" target="_blank" rel="noopener noreferrer">Lihat Detail &rarr;</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/port2.png" alt="Placeholder Gambar Proyek 2" />
+            <div class="card-content">
+              <h3>Kopi Kuy</h3>
+              <p>Ini adalah sebuah project yang saya kerjakan ketika mengikuti kursus di Prakerja. Website ini menggunakan HTML, CSS, JS, Bootsrap</p>
+              <a href="https://faisalwich.github.io/kopi-kuy/" target="_blank" rel="noopener noreferrer">Lihat Detail &rarr;</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="img/port3.png" alt="Placeholder Gambar Proyek 3" />
+            <div class="card-content">
+              <h3>Jobless</h3>
+              <p>Project ini saya buat menggunakan HTML dan CSS saja.</p>
+              <a href="https://faisalwich.github.io/jobless-2.0/" target="_blank" rel="noopener noreferrer">Lihat Detail &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="container">
+        <h2>Hubungi Saya</h2>
+        <p>Saya sangat terbuka untuk diskusi, kolaborasi, atau kesempatan lainnya. Silakan hubungi saya.</p>
+        <div class="social-links">
+          <a href="mailto:buatcarimakan7@gmail.com">Email</a> | <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+          <a href="https://instagram.com/moneywich" target="_blank" rel="noopener noreferrer">Instagram</a> |
+          <a href="https://github.com/Faisalwich" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+    <footer><p>&copy; 2025 - Faisal Wicahyono</p></footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>
