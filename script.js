@@ -83,3 +83,68 @@ if (typingEffectElement) {
   // Panggil fungsi setelah halaman dimuat
   document.addEventListener("DOMContentLoaded", type);
 }
+
+// --- Kode untuk Menampilkan Jurnal ---
+
+// Fungsi ini akan berjalan setelah seluruh halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    const jurnalContainer = document.getElementById('jurnal-container');
+    
+    // Pastikan kita berada di halaman yang memiliki kontainer jurnal
+    if (jurnalContainer) {
+        // GANTI NAMA FILE DI BAWAH INI
+        const namaFileJurnal = '2025-07-10-tulisan-pertamaku.md'; 
+
+        // Ambil file jurnal dari server
+        fetch(`/_jurnal/${namaFileJurnal}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Gagal memuat file jurnal.');
+                }
+                return response.text();
+            })
+            .then(markdownText => {
+                // Memisahkan front matter (metadata) dan isi markdown
+                const parts = markdownText.split('---');
+                const frontMatterText = parts[1];
+                const markdownBody = parts[2];
+
+                // Mengolah front matter untuk mendapatkan judul dan tanggal
+                const frontMatter = {};
+                frontMatterText.split('\n').forEach(line => {
+                    if (line.trim()) {
+                        const [key, ...value] = line.split(':');
+                        frontMatter[key.trim()] = value.join(':').trim();
+                    }
+                });
+
+                // Mengubah isi markdown menjadi HTML
+                const contentHtml = marked.parse(markdownBody);
+
+                // Membuat format tanggal yang lebih ramah
+                const tanggal = new Date(frontMatter.date).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                // Menyiapkan HTML lengkap untuk ditampilkan
+                const postHtml = `
+                    <article class="jurnal-post">
+                        <h3>${frontMatter.title}</h3>
+                        <p class="post-meta">Dipublikasikan pada ${tanggal}</p>
+                        <div class="post-content">
+                            ${contentHtml}
+                        </div>
+                    </article>
+                `;
+                
+                // Menampilkan hasilnya ke dalam kontainer
+                jurnalContainer.innerHTML = postHtml;
+            })
+            .catch(error => {
+                console.error(error);
+                jurnalContainer.innerHTML = `<p>Gagal memuat tulisan. Silakan coba lagi nanti.</p>`;
+            });
+    }
+});
